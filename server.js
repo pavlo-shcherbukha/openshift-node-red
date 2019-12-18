@@ -19,8 +19,8 @@ var MyRed = function() {
      */
     self.setupVariables = function() {
         //  Set the environment variables we need.
-        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8000;
+        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
         if (typeof self.ipaddress === "undefined") {
             //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
@@ -104,10 +104,10 @@ var MyRed = function() {
         self.server = http.createServer(self.app);
 
         //setup basic authentication
-        var basicAuth = require('basic-auth-connect');
-        self.app.use(basicAuth(function(user, pass) {
-            return user === 'test' && pass === atob('dGVzdA==');
-        }));
+        //var basicAuth = require('basic-auth-connect');
+        //self.app.use(basicAuth(function(user, pass) {
+        //    return user === 'test' && pass === atob('dGVzdA==');
+        //}));
 
         // Initialise the runtime with a server and settings
         RED.init(self.server, self.redSettings);
