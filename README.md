@@ -13,6 +13,12 @@ Application starts from Node.js web server, port 8080 that is native for openshi
 
 All http-request nodes are accesses after siffix /API/
 
+Application build
+
+```bash
+  npm install
+```
+
 Application start
 
 ```bash
