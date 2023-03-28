@@ -19,7 +19,6 @@
   "dependencies": {
     "express": "4.x",
     "node-red": ">= 0.9",
-    "atob": "1.1.2",
     "basic-auth-connect": "1.0.0"
   },
   "devDependencies": {},
